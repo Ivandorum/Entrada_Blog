@@ -1,0 +1,88 @@
+/**Clase para manejar las entradas de un blog.
+ * La clase se creó el 7/2/2023 por Ivan Agullo.
+ * Esta es la versión 2.3
+ */
+public class EntradaBlogIAS {
+	/**
+	 * separador es el ccarácter que separa ENTRADA DE del
+	 * @author Ivan Agullo Saez
+	*/
+		public static char separador=':';
+		private int id;
+		private String texto;
+		private String autor;
+		
+		/**
+		 * @param id 
+		 * Sirve para identificar el blog
+		 * @param autor
+		 * Indica quien es el creador del blog
+		 * @param texto
+		 * Es el texto que va mostrar por pantalla
+		 * @throws IllegalArgumentException
+		 * Muestra por pantalla un mensaje de error en caso de que el id sea menor de 0
+		 */
+		
+		public EntradaBlogIAS(int id,String autor,String texto)throws IllegalArgumentException{
+			if(id<=0) throw new IllegalArgumentException("El id no puede ser negativo");
+			this.id=id;
+			this.autor=autor;
+			this.texto=texto;
+		}
+		
+		@Override
+		public String toString(){
+			String cad="";
+			cad+="\nENTRADA DE"+separador+autor;
+			cad+="\n "+texto;
+			return cad;
+		}
+		
+		/**
+		 * 
+		 * @return this.id
+		 * Devuelve el id 
+		 */
+		public int getId(){
+			return this.id;
+		}
+		
+		/**
+		 * 
+		 * @return this.texto
+		 * Devuelve le texto
+		 */
+		public String getTexto(){
+			return this.texto;
+		}
+		
+		/**
+		 * 
+		 * @return this.autor.toUpperCase()
+		 * Devuelve el autor y lo pone en mayuscula
+		 */
+		public String getAutor(){
+			return this.autor.toUpperCase();
+		}
+		
+		/**
+		 * 
+		 * @return 
+		 * devuelve el autor como se lo pasan
+		 */
+		public String devuelveAutor(){
+			return this.autor;
+		}
+		
+		/**
+		 * 
+		 * @param args
+		 * Puede estar esperando un argumento
+		 */
+		
+		public static void main(String[] args) {
+	               
+			EntradaBlogIAS e1=new EntradaBlogIAS (1,"ivan","Últimas noticias, está disponible BixBy 2.0");
+			System.out.println(e1);
+		}
+}
